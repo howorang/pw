@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8"/>
+    <title>{{ title }} - howorang's</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <!--[if IE]>
+    <script src="{{ url_for('static', filename='html5shiv.min.js') }}"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="wrapper">
+    <header>
+
+        <h1>howorang.xyz</h1>
+        <p class="slogan">Mój makroblog</p>
+
+    </header>
+    <div class="row-container">
+        <nav class="entry-nav">
+            <ul>
+                <li><a href="#">22.04.2020</a>
+                    <ul>
+                        <li><a href="#">Lorem ipsum</a></li>
+                        <li><a href="#">test1</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">21.04.2020</a>
+                    <ul>
+                        <li><a href="#">Lorem ipsum</a></li>
+                        <li><a href="#">test1</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="entries">
+            {% for article in g.articles %}
+                <article>
+                    <header>
+                        <h2>{{ article.title }}</h2>
+                        <p>Opublikowano:
+                            <time pubdate="pubdate">{{ article.pubdate }}</time>
+                        </p>
+                    </header>
+                    {{ article.html }}
+                    <footer>
+                        <p><small>autor: {{ article.author }}</small></p>
+                    </footer>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

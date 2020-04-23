@@ -30,3 +30,7 @@ a {
     flex-wrap: nowrap;
     width: 60%;
 }
+
+.wrapper {
+    margin: 0 auto;
+}
