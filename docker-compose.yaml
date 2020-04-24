@@ -1,0 +1,7 @@
+version: "3.7"
+services:
+  pw:
+    build: ./
+    image: pw
+    ports:
+    - "80:8000"
