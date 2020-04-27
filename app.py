@@ -1,13 +1,12 @@
 import os
-import yaml
-import markdown
 
+import markdown
+import yaml
 from flask import Flask
 from flask import g
-from flask import Markup
+from flask import render_template
 
 from Article import Article
-from flask import render_template
 
 app = Flask(__name__)
 
@@ -25,7 +24,7 @@ def hello_world():
                     articles.append(Article(metadata['author'], metadata['pubdate'], metadata['title'], markdown_html))
     g.articles = articles
 
-    return render_template('base.html')
+    return render_template('base.html', title="Strona główna")
 
 
 if __name__ == '__main__':
